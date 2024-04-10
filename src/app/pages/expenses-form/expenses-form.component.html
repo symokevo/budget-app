@@ -1,1 +1,30 @@
-<p>expenses-form works!</p>
+<div class="row">
+  <div class="col-lg-6">
+    <h4>Expenses Form</h4>
+
+    <form [formGroup]="expensesForm" (submit)="onSubmit">
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="Price" formControlName="price">
+        @if (expensesForm.get('price')?.hasError('required') && expensesForm.get('price')?.touched) {
+          <div class="form-text text-danger fw-bold">The Price Entry is Required</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="title" formControlName="title">
+        @if (expensesForm.get('title')?.hasError('required') && expensesForm.get('title')?.touched) {
+          <div class="form-text text-danger fw-bold">The Title Entry is Required</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+  </div>
+</div>
