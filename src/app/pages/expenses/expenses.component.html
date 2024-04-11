@@ -5,6 +5,7 @@
   <h5 class="fw-bold">Total Expenses: <strong class="text-success">$200</strong></h5>
 
   <div class="d-flex flex-column gap-3">
+    @for (expense of expenses; track $index) {
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Card Title</h5>
@@ -16,5 +17,6 @@
         </div>
       </div>
     </div>
+  }
   </div>
 </div>
